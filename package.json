@@ -1,0 +1,46 @@
+{
+  "name": "caylo",
+  "version": "1.0.0",
+  "description": "A fun way to learn JavaScript inspired by Stanford's Karel.",
+  "scripts": {
+    "start": "concurrently \"tsc -w\" \"lite-server\"",
+    "lint": "tslint 'src/**/*.{ts,tsx}'",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaulNegoescu/caylo.git"
+  },
+  "keywords": [
+    "karel",
+    "robot",
+    "javascript",
+    "teaching"
+  ],
+  "author": "Paul Negoescu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PaulNegoescu/caylo/issues"
+  },
+  "homepage": "https://github.com/PaulNegoescu/caylo#readme",
+  "devDependencies": {
+    "@types/ace": "0.0.40",
+    "concurrently": "^4.0.1",
+    "husky": "^1.1.1",
+    "lite-server": "^2.4.0",
+    "prettier": "1.14.3",
+    "pretty-quick": "^1.7.0",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.1.1"
+  },
+  "dependencies": {
+    "ace-builds": "^1.4.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
