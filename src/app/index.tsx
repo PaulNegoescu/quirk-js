@@ -1,0 +1,14 @@
+import * as React from 'react'
+import Caylo from '../views/caylo'
+
+class App extends React.Component<{}, {}> {
+  public render() {
+    return (
+      <div className="caylo-app">
+        <Caylo />
+      </div>
+    )
+  }
+}
+
+export default App

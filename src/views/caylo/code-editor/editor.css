@@ -1,0 +1,13 @@
+.code-editor {
+  width: 50%;
+}
+
+.code-editor__instance {
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+
+.code-editor__controls {
+  padding: 3px;
+}
