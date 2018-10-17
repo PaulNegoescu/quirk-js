@@ -4,7 +4,9 @@ Caylo is a teaching tool meant to teach aspiring software engineers proper codin
 
 Caylo is inspired by [Karel the robot](http://karel.sourceforge.net/) (by Richard E. Pattis), also used in a Java version by the Stanford University in their [CS106A](https://www.youtube.com/playlist?list=PLFE2A69D0EA1C22B3) course.
 
-Caylo is completely built in JavaScript and exposes both the script runner and a code editor, making it a completely independent solution.
+The name is partly inspired by Ryan Calo, because of his involvement in robot legalities. It is also a boy's name meaning origin.
+
+Caylo is completely built in JavaScript and exposes both the script runner and a code editor, making it a completely independent solution. Plans for the future include integration with blockly
 
 ## Running Caylo
 
