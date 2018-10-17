@@ -8,7 +8,7 @@ Caylo is completely built in JavaScript and exposes both the script runner and a
 
 ## Running Caylo
 
-You need to have (nodejs)[https://nodejs.org/] installed, preferably v.10+.
+You need to have [nodejs](https://nodejs.org/) installed, preferably v.10+.
 
 Pull the source and run `yarn` or `npm i`. There are no other dependencies.
 
@@ -20,7 +20,7 @@ Run `yarn build` or `npm run build` to get the built version then host it anypla
 
 ## License
 
-Caylo is licenced under the (MIT Licence) [https://opensource.org/licenses/MIT] which allows you to use it anywhere you'd like.
+Caylo is licenced under the [MIT Licence](https://opensource.org/licenses/MIT) which allows you to use it anywhere you'd like.
 
 ## FAQ
 
