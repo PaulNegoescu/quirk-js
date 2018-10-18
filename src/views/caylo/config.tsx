@@ -40,9 +40,9 @@ enum possibleThemesDark {
   'vibrant_ink' = 'Vibrant Ink',
 }
 
-const acePaths = { theme: 'ace/theme', mode: 'ace/mode' }
+const acePaths = { theme: 'ace/theme', mode: 'ace/mode' };
 
-const defaultTheme = 'tomorrow_night'
+const defaultTheme = 'tomorrow_night';
 
 const aceDefaultProps = {
   mode: `${acePaths.mode}/javascript`,
@@ -52,8 +52,8 @@ const aceDefaultProps = {
   theme: defaultTheme,
   newLineMode: 'unix' as 'auto' | 'unix' | 'windows',
   useSoftTabs: true,
-  fontSize: 16 as number | 'string',
-}
+  fontSize: 16 as number | string,
+};
 
 const editor = {
   className: 'code-editor',
@@ -63,10 +63,10 @@ const editor = {
   possibleThemesLight,
   possibleThemesDark,
   defaultProps: aceDefaultProps,
-}
+};
 
 const config = {
   editor,
-}
+};
 
-export default config
+export default config;

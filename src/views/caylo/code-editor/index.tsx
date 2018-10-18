@@ -1,5 +1,5 @@
 import * as React from 'react';
-import CayloAce from './ace';
+import CayloAce from './caylo-ace.component';
 import Controls from './controls';
 import config from '../config';
 import { AceProps } from './types';
@@ -42,7 +42,9 @@ export default class CodeEditor extends React.Component<{}, AceProps> {
             onConfigurationChange={this.onConfigurationChange}
           />
         </div>
-        <CayloAce baseClass={baseClass} aceConfig={this.state} />
+        <div className="border border-dark">
+          <CayloAce baseClass={baseClass} aceConfig={this.state} />
+        </div>
       </>
     );
   }

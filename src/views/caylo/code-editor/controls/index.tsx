@@ -1,6 +1,7 @@
 import * as React from 'react';
 import config from '../../config';
-import ThemeSelector from './theme-selector';
+import ThemeSelector from './theme-selector.component';
+import FontSizeSelector from './font-size-selector.component';
 import { AceProps } from '../types';
 
 interface ICodeEditorControlProps {
@@ -10,20 +11,24 @@ interface ICodeEditorControlProps {
 
 interface ICodeEditorControlState {
   theme?: string;
+  fontSize?: string;
 }
 
 export default class CodeEditorControls extends React.Component<
   ICodeEditorControlProps,
   ICodeEditorControlState
 > {
-  private settings = ['theme'];
+  private settings = ['theme', 'fontSize'];
 
   public constructor(props: any) {
+    /* tslint:disable no-console */
     super(props);
 
     this.state = {};
     this.reloadStateFromCache();
     this.emitConfigurationChange(this.state);
+
+    console.log(this.state);
 
     this.handleConfigurationChange = this.handleConfigurationChange.bind(this);
   }
@@ -71,6 +76,12 @@ export default class CodeEditorControls extends React.Component<
           <ThemeSelector
             handleChange={this.handleConfigurationChange}
             theme={this.state.theme as string}
+          />
+        </div>
+        <div className="col-md">
+          <FontSizeSelector
+            handleChange={this.handleConfigurationChange}
+            fontSize={this.state.fontSize as string}
           />
         </div>
       </div>
