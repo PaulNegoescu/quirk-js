@@ -21,14 +21,11 @@ export default class CodeEditorControls extends React.Component<
   private settings = ['theme', 'fontSize'];
 
   public constructor(props: any) {
-    /* tslint:disable no-console */
     super(props);
 
     this.state = {};
     this.reloadStateFromCache();
     this.emitConfigurationChange(this.state);
-
-    console.log(this.state);
 
     this.handleConfigurationChange = this.handleConfigurationChange.bind(this);
   }

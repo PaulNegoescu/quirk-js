@@ -9,29 +9,29 @@ export default class FontSizeSelector extends React.Component<{
   }
 
   private renderSizeOptions() {
-    const possibleSizes: number[] = [];
-
-    for (let size = 8, increment = 1; size <= 72; size += increment) {
-      possibleSizes.push(size);
-      switch (size) {
-        case 12:
-          increment = 2;
-          break;
-        case 28:
-          increment = 8;
-          break;
-        case 36:
-          increment = 12;
-          break;
-        case 48:
-          increment = 24;
-          break;
-      }
-    }
+    const possibleSizes = [
+      8,
+      9,
+      10,
+      11,
+      12,
+      14,
+      16,
+      18,
+      20,
+      22,
+      24,
+      26,
+      28,
+      36,
+      48,
+      72,
+    ];
 
     return possibleSizes.map(option => (
       <option value={option} key={option}>
-        {option} px
+        {option}
+        px
       </option>
     ));
   }

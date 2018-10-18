@@ -35,7 +35,6 @@ export default class CayloAce extends React.Component<{
   }
 
   private validProps() {
-    /* tslint:disable no-console */
     const validProps = {
       ...config.editor.defaultProps,
       ...this.props.aceConfig,
