@@ -7,9 +7,11 @@ import './editor.css'
 
 import 'ace-builds/webpack-resolver'
 
-export default class CayloAce extends React.Component<AceProps> {
+export default class CayloAce extends React.Component<{
+  baseClass: string
+  aceConfig: AceProps
+}> {
   private elem: React.RefObject<HTMLDivElement>
-  public static defaultProps: AceProps = config.editor.defaultProps
   private aceInstance: ace.Ace.Editor
 
   public constructor(props: any) {
@@ -33,8 +35,11 @@ export default class CayloAce extends React.Component<AceProps> {
   }
 
   private validProps() {
-    const validProps = { ...this.props }
-    delete validProps.baseClass
+    const validProps = {
+      ...config.editor.defaultProps,
+      ...this.props.aceConfig,
+    }
+    validProps.theme = `${config.editor.paths.theme}/${validProps.theme}`
 
     return validProps
   }

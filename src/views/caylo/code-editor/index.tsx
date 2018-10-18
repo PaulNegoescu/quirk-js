@@ -33,10 +33,7 @@ export default class CodeEditor extends React.Component<{}, AceProps> {
           baseClass={baseClass}
           onConfigurationChange={this.onConfigurationChange}
         />
-        <CayloAce
-          baseClass={baseClass}
-          theme={`${config.editor.paths.theme}/${this.state.theme}`}
-        />
+        <CayloAce baseClass={baseClass} aceConfig={this.state} />
       </div>
     )
   }
