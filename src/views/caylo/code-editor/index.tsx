@@ -2,22 +2,20 @@ import * as React from 'react';
 import CayloAce from './caylo-ace.component';
 import Controls from './controls';
 import config from '../config';
-import { AceProps } from './types';
+import { EditorProps } from './types';
+import CodeEditorContext from './code-editor.context';
 
-export default class CodeEditor extends React.Component<{}, AceProps> {
+export default class CodeEditor extends React.Component<{}, EditorProps> {
   public constructor(props: {}) {
     super(props);
-
-    this.state = {
-      theme: config.editor.defaultTheme,
-    };
+    this.state = {};
 
     this.onConfigurationChange = this.onConfigurationChange.bind(this);
   }
 
-  private onConfigurationChange(conf: AceProps): void;
+  private onConfigurationChange(conf: EditorProps): void;
   private onConfigurationChange(conf: string, value?: string): void;
-  private onConfigurationChange(conf: string | AceProps, value?: string) {
+  private onConfigurationChange(conf: string | EditorProps, value?: string) {
     if (typeof conf === 'string') {
       this.setState({ [conf]: value });
       return;
@@ -26,26 +24,28 @@ export default class CodeEditor extends React.Component<{}, AceProps> {
   }
 
   public render() {
-    const baseClass = config.editor.className;
     return (
-      <>
+      <CodeEditorContext.Provider
+        value={{
+          baseClass: config.editor.className,
+          editorProps: this.state,
+          onConfigurationChange: this.onConfigurationChange,
+        }}
+      >
         <div
           className={
-            baseClass +
+            config.editor.className +
             'btn-toolbar justify-content-between bg-dark border-bottom border-light mt-2'
           }
           role="toolbar"
-          aria-label="Toolbar with button groups"
+          aria-label="Code Editor Toolbar"
         >
-          <Controls
-            baseClass={baseClass}
-            onConfigurationChange={this.onConfigurationChange}
-          />
+          <Controls />
         </div>
         <div className="border border-dark">
-          <CayloAce baseClass={baseClass} aceConfig={this.state} />
+          <CayloAce />
         </div>
-      </>
+      </CodeEditorContext.Provider>
     );
   }
 }

@@ -1,15 +1,17 @@
 import * as React from 'react';
 import * as ace from 'ace-builds';
 import config from '../config';
-import { AceProps } from './types';
+import { EditorProps } from './types';
 
-import './editor.css';
+import './code-editor.css';
 
 import 'ace-builds/webpack-resolver';
+import { withContextAsProps } from '../with-context.hoc';
+import CodeEditorContext from './code-editor.context';
 
-export default class CayloAce extends React.Component<{
-  baseClass: string;
-  aceConfig: AceProps;
+class CayloAce extends React.Component<{
+  baseClass?: string;
+  editorProps?: EditorProps;
 }> {
   private elem: React.RefObject<HTMLDivElement>;
   private aceInstance: ace.Ace.Editor;
@@ -35,14 +37,15 @@ export default class CayloAce extends React.Component<{
   }
 
   private validProps() {
-    const validProps = {
+    const valid: EditorProps = {
       ...config.editor.defaultProps,
-      ...this.props.aceConfig,
+      ...this.props.editorProps,
     };
-    validProps.theme = `${config.editor.paths.theme}/${validProps.theme}`;
-    validProps.fontSize = parseInt(validProps.fontSize as string, 10);
+    valid.theme = `${config.editor.paths.theme}/${valid.theme}`;
+    valid.fontSize = parseInt(valid.fontSize as string, 10);
+    valid.tabSize = parseInt((valid.tabSize as unknown) as string, 10);
 
-    return validProps;
+    return valid;
   }
 
   public render() {
@@ -51,3 +54,8 @@ export default class CayloAce extends React.Component<{
     );
   }
 }
+
+export default (withContextAsProps(
+  CayloAce,
+  CodeEditorContext,
+) as unknown) as typeof CayloAce;

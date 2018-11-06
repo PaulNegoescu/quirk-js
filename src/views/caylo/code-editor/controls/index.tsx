@@ -1,31 +1,31 @@
 import * as React from 'react';
 import config from '../../config';
+
 import ThemeSelector from './theme-selector.component';
 import FontSizeSelector from './font-size-selector.component';
-import { AceProps } from '../types';
-
-interface ICodeEditorControlProps {
-  baseClass?: string;
-  onConfigurationChange?: (conf: string | AceProps, value?: string) => void;
-}
+import TabSizeSelector from './tab-size-selector.component';
+import { withContextAsProps } from '../../with-context.hoc';
+import CodeEditorContext, { ICodeEditorContext } from '../code-editor.context';
 
 interface ICodeEditorControlState {
   theme?: string;
   fontSize?: string;
+  tabSize?: any;
 }
 
-export default class CodeEditorControls extends React.Component<
-  ICodeEditorControlProps,
+class CodeEditorControls extends React.Component<
+  ICodeEditorContext,
   ICodeEditorControlState
 > {
-  private settings = ['theme', 'fontSize'];
+  private settings = ['theme', 'fontSize', 'tabSize'];
 
   public constructor(props: any) {
     super(props);
 
     this.state = {};
     this.reloadStateFromCache();
-    this.emitConfigurationChange(this.state);
+    this.props.onConfigurationChange &&
+      this.props.onConfigurationChange(this.state);
 
     this.handleConfigurationChange = this.handleConfigurationChange.bind(this);
   }
@@ -39,20 +39,8 @@ export default class CodeEditorControls extends React.Component<
       value,
     );
 
-    this.emitConfigurationChange(key, value);
-  }
-
-  private emitConfigurationChange(conf: AceProps): void;
-  private emitConfigurationChange(conf: string, value: string): void;
-  private emitConfigurationChange(conf: string | AceProps, value?: string) {
-    if (!this.props.onConfigurationChange) {
-      return;
-    }
-    if (typeof conf === 'string') {
-      this.props.onConfigurationChange(conf, value);
-      return;
-    }
-    this.props.onConfigurationChange(conf);
+    this.props.onConfigurationChange &&
+      this.props.onConfigurationChange(key, value);
   }
 
   private reloadStateFromCache() {
@@ -81,7 +69,19 @@ export default class CodeEditorControls extends React.Component<
             fontSize={this.state.fontSize as string}
           />
         </div>
+        <div className="col-md">
+          <TabSizeSelector
+            handleChange={this.handleConfigurationChange}
+            tabSize={this.state.tabSize as string}
+          />
+        </div>
       </div>
     );
   }
 }
+
+// Below conversion hack are necessary to have proper types when using the component
+export default (withContextAsProps(
+  CodeEditorControls,
+  CodeEditorContext,
+) as unknown) as typeof CodeEditorControls;
