@@ -1,6 +1,6 @@
 # Gana
 
-Gana is a teaching tool meant to teach aspiring software engineers proper coding habbits and a bit of JavaScript syntax.
+Gana (guh-nuh) JS is a teaching tool meant to teach aspiring software engineers proper coding habbits and a bit of JavaScript syntax.
 
 Gana is inspired by [Karel the robot](http://karel.sourceforge.net/) (by Richard E. Pattis), also used in a Java version by the Stanford University in their [CS106A](https://www.youtube.com/playlist?list=PLFE2A69D0EA1C22B3) course.
 
