@@ -58,7 +58,7 @@ const aceDefaultProps = {
 const editor = {
   className: 'code-editor',
   defaultTheme,
-  localStorageKey: 'caylo-editor',
+  localStorageKey: 'gana-editor',
   paths: acePaths,
   possibleThemesLight,
   possibleThemesDark,

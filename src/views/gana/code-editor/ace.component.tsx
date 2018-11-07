@@ -9,7 +9,7 @@ import 'ace-builds/webpack-resolver';
 import { withContextAsProps } from '../with-context.hoc';
 import CodeEditorContext from './code-editor.context';
 
-class CayloAce extends React.Component<{
+class Ace extends React.Component<{
   baseClass?: string;
   editorProps?: EditorProps;
 }> {
@@ -56,6 +56,6 @@ class CayloAce extends React.Component<{
 }
 
 export default (withContextAsProps(
-  CayloAce,
+  Ace,
   CodeEditorContext,
-) as unknown) as typeof CayloAce;
+) as unknown) as typeof Ace;

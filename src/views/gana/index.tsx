@@ -1,13 +1,13 @@
 import * as React from 'react';
 import CodeEditor from './code-editor';
 
-export default class Caylo extends React.Component<{}, {}> {
+export default class Gana extends React.Component<{}, {}> {
   public render() {
     return (
       <>
         <nav className="navbar navbar-dark bg-dark">
           <a className="navbar-brand" href="#">
-            Caylo
+            Gana
           </a>
         </nav>
         <div className="row">

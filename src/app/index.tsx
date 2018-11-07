@@ -1,11 +1,11 @@
 import * as React from 'react';
-import Caylo from '../views/caylo';
+import Gana from '../views/gana';
 
 class App extends React.Component<{}, {}> {
   public render() {
     return (
-      <div className="caylo-app container-fluid">
-        <Caylo />
+      <div className="gana-app container-fluid">
+        <Gana />
       </div>
     );
   }

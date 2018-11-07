@@ -1,5 +1,5 @@
 import * as React from 'react';
-import CayloAce from './caylo-ace.component';
+import Ace from './ace.component';
 import Controls from './controls';
 import config from '../config';
 import { EditorProps } from './types';
@@ -43,7 +43,7 @@ export default class CodeEditor extends React.Component<{}, EditorProps> {
           <Controls />
         </div>
         <div className="border border-dark">
-          <CayloAce />
+          <Ace />
         </div>
       </CodeEditorContext.Provider>
     );
