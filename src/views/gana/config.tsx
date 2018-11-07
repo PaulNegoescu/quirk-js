@@ -57,7 +57,6 @@ const aceDefaultProps = {
 
 const editor = {
   className: 'code-editor',
-  defaultTheme,
   localStorageKey: 'gana-editor',
   paths: acePaths,
   possibleThemesLight,
