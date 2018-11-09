@@ -44,3 +44,9 @@ export type EditorProps = {
 
   baseClass?: string;
 } & Partial<typeof config.editor.defaultProps>;
+
+export interface ICodeEditorContext {
+  baseClass?: string;
+  editorProps?: EditorProps;
+  onConfigurationChange?: (conf: string | EditorProps, value?: string) => void;
+}

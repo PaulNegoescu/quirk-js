@@ -4,8 +4,7 @@ import config from '../../config';
 import ThemeSelector from './theme-selector.component';
 import FontSizeSelector from './font-size-selector.component';
 import TabSizeSelector from './tab-size-selector.component';
-import { withContextAsProps } from '../../with-context.hoc';
-import CodeEditorContext, { ICodeEditorContext } from '../code-editor.context';
+import { ICodeEditorContext } from '../types';
 
 interface ICodeEditorControlState {
   theme?: string;
@@ -80,8 +79,4 @@ class CodeEditorControls extends React.Component<
   }
 }
 
-// Below conversion hack are necessary to have proper types when using the component
-export default (withContextAsProps(
-  CodeEditorControls,
-  CodeEditorContext,
-) as unknown) as typeof CodeEditorControls;
+export default CodeEditorControls;

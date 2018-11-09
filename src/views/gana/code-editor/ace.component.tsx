@@ -1,18 +1,13 @@
 import * as React from 'react';
 import * as ace from 'ace-builds';
 import config from '../config';
-import { EditorProps } from './types';
+import { ICodeEditorContext, EditorProps } from './types';
 
 import './code-editor.css';
 
 import 'ace-builds/webpack-resolver';
-import { withContextAsProps } from '../with-context.hoc';
-import CodeEditorContext from './code-editor.context';
 
-class Ace extends React.Component<{
-  baseClass?: string;
-  editorProps?: EditorProps;
-}> {
+class Ace extends React.Component<ICodeEditorContext> {
   private elem: React.RefObject<HTMLDivElement>;
   private aceInstance: ace.Ace.Editor;
 
@@ -55,7 +50,4 @@ class Ace extends React.Component<{
   }
 }
 
-export default (withContextAsProps(
-  Ace,
-  CodeEditorContext,
-) as unknown) as typeof Ace;
+export default Ace;

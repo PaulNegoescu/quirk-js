@@ -3,14 +3,17 @@ import Ace from './ace.component';
 import Controls from './controls';
 import config from '../config';
 import { EditorProps } from './types';
-import CodeEditorContext from './code-editor.context';
 
 export default class CodeEditor extends React.Component<{}, EditorProps> {
+  private editorContext = {
+    baseClass: config.editor.className,
+    editorProps: this.state,
+    onConfigurationChange: this.onConfigurationChange.bind(this),
+  };
+
   public constructor(props: {}) {
     super(props);
     this.state = {};
-
-    this.onConfigurationChange = this.onConfigurationChange.bind(this);
   }
 
   private onConfigurationChange(conf: EditorProps): void;
@@ -25,13 +28,7 @@ export default class CodeEditor extends React.Component<{}, EditorProps> {
 
   public render() {
     return (
-      <CodeEditorContext.Provider
-        value={{
-          baseClass: config.editor.className,
-          editorProps: this.state,
-          onConfigurationChange: this.onConfigurationChange,
-        }}
-      >
+      <>
         <div
           className={
             config.editor.className +
@@ -40,12 +37,12 @@ export default class CodeEditor extends React.Component<{}, EditorProps> {
           role="toolbar"
           aria-label="Code Editor Toolbar"
         >
-          <Controls />
+          <Controls {...this.editorContext} />
         </div>
         <div className="border border-dark">
-          <Ace />
+          <Ace {...this.editorContext} />
         </div>
-      </CodeEditorContext.Provider>
+      </>
     );
   }
 }
