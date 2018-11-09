@@ -40,7 +40,3 @@ This way you can just pluck out the Gana feature (view) and use it in your own a
 ### Why didn't you use brace or react-ace-editor?
 
 I don't like brace's implementation of the Ace editor (it's hacky IMO) and Ace works fine by default with webpack plus it's easy to "reactify", thus bringing in an extra (or two) third party dep only detracts from the security and maintainability aspects of the app.
-
-### Why not use contextType?
-
-I like the prop aproach better, it keeps the component independent from the context itself. At any point in the future you can pluck the component out and just pass it the right props no need to reproduce the context. I feel like this architecture is more decoupled.
