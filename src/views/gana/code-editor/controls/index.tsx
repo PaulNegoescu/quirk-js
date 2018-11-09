@@ -56,19 +56,19 @@ class CodeEditorControls extends React.Component<
   public render() {
     return (
       <div className={`${this.props.baseClass}__controls form-row`}>
-        <div className="col-md">
+        <div className="col-xl">
           <ThemeSelector
             handleChange={this.handleConfigurationChange}
             theme={this.state.theme as string}
           />
         </div>
-        <div className="col-md">
+        <div className="col-xs">
           <FontSizeSelector
             handleChange={this.handleConfigurationChange}
             fontSize={this.state.fontSize as string}
           />
         </div>
-        <div className="col-md">
+        <div className="col-xs">
           <TabSizeSelector
             handleChange={this.handleConfigurationChange}
             tabSize={this.state.tabSize as string}

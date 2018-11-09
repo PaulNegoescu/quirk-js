@@ -1,11 +1,11 @@
 import * as React from 'react';
 import * as ace from 'ace-builds';
+import 'ace-builds/webpack-resolver';
+
 import config from '../config';
 import { ICodeEditorContext, EditorProps } from './types';
 
 import './code-editor.css';
-
-import 'ace-builds/webpack-resolver';
 
 class Ace extends React.Component<ICodeEditorContext> {
   private elem: React.RefObject<HTMLDivElement>;
