@@ -8,13 +8,8 @@ import { ICodeEditorContext, EditorProps } from './types';
 import './code-editor.css';
 
 class Ace extends React.Component<ICodeEditorContext> {
-  private elem: React.RefObject<HTMLDivElement>;
+  private elem: React.RefObject<HTMLDivElement> = React.createRef();
   private aceInstance: ace.Ace.Editor;
-
-  public constructor(props: any) {
-    super(props);
-    this.elem = React.createRef();
-  }
 
   public componentDidMount() {
     this.aceInstance = ace.edit(
