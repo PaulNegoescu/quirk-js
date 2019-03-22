@@ -4,7 +4,11 @@ import Layout from './layouts/bootstrap';
 import GameRunner from './game-runner';
 
 const Quirk = () => (
-  <Layout title="Quirk JS" left={<CodeEditor />} right={<GameRunner />} />
+  <Layout
+    title="Quirk JS"
+    primary={<CodeEditor />}
+    secondary={<GameRunner />}
+  />
 );
 
 export default Quirk;
