@@ -1,9 +1,9 @@
 import * as React from 'react';
-import Gana from '../views/gana';
+import Quirk from '../views/quirk';
 
 const App = () => (
-  <div className="gana-app container-fluid">
-    <Gana />
+  <div className="quirk-app container-fluid">
+    <Quirk />
   </div>
 );
 

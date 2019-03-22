@@ -3,8 +3,8 @@ import CodeEditor from './code-editor';
 import Layout from './layouts/bootstrap';
 import GameRunner from './game-runner';
 
-const Gana = () => (
-  <Layout title="Gana" left={<CodeEditor />} right={<GameRunner />} />
+const Quirk = () => (
+  <Layout title="Quirk JS" left={<CodeEditor />} right={<GameRunner />} />
 );
 
-export default Gana;
+export default Quirk;

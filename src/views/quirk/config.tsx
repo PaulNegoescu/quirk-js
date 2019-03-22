@@ -57,7 +57,7 @@ const aceDefaultProps = {
 
 const editor = {
   className: 'code-editor',
-  localStorageKey: 'gana-editor',
+  localStorageKey: 'quirk-editor',
   paths: acePaths,
   possibleThemesLight,
   possibleThemesDark,
