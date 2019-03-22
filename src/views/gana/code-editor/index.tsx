@@ -2,33 +2,35 @@ import * as React from 'react';
 import Ace from './ace.component';
 import Controls from './controls';
 import config from '../config';
-import { EditorProps } from './types';
+import { EditorProps, ICodeEditorContext } from './types';
+import CodeEditorContext from './code-editor.context';
 
-export default class CodeEditor extends React.Component<{}, EditorProps> {
-  private editorContext = {
-    baseClass: config.editor.className,
-    editorProps: this.state,
-    onConfigurationChange: this.onConfigurationChange.bind(this),
-  };
-
+class CodeEditor extends React.Component<{}, ICodeEditorContext> {
   public constructor(props: {}) {
     super(props);
-    this.state = {};
+    this.state = {
+      editorProps: {},
+      onConfigurationChange: this.onConfigurationChange.bind(this),
+    };
   }
 
   private onConfigurationChange(conf: EditorProps): void;
   private onConfigurationChange(conf: string, value?: string): void;
   private onConfigurationChange(conf: string | EditorProps, value?: string) {
+    /* tslint:disable */
+    console.log('Conf change, code editor:', conf, value);
     if (typeof conf === 'string') {
-      this.setState({ [conf]: value });
+      this.setState({
+        editorProps: { ...this.state.editorProps, [conf]: value },
+      });
       return;
     }
-    this.setState({ ...this.state, ...conf });
+    this.setState({ editorProps: { ...this.state.editorProps, ...conf } });
   }
 
   public render() {
     return (
-      <>
+      <CodeEditorContext.Provider value={this.state}>
         <div
           className={
             config.editor.className +
@@ -37,12 +39,14 @@ export default class CodeEditor extends React.Component<{}, EditorProps> {
           role="toolbar"
           aria-label="Code Editor Toolbar"
         >
-          <Controls {...this.editorContext} />
+          <Controls />
         </div>
         <div className="border border-dark">
-          <Ace {...this.editorContext} />
+          <Ace />
         </div>
-      </>
+      </CodeEditorContext.Provider>
     );
   }
 }
+
+export default CodeEditor;

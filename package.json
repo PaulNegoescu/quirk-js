@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "ace-builds": "^1.4.1",
-    "bootstrap": "^4.1.3",
-    "pixi.js": "^4.8.2",
-    "react": "^16.6.1",
-    "react-dom": "^16.6.1",
-    "react-scripts-ts": "^3.1.0"
+    "ace-builds": "^1.4.3",
+    "bootstrap": "^4.3.1",
+    "pixi.js": "^4.8.6",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-scripts-ts": "^4.0.8"
   },
   "scripts": {
     "start": "react-scripts-ts start",
@@ -17,19 +17,25 @@
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
-    "@types/ace": "^0.0.40",
-    "@types/jest": "^23.3.9",
-    "@types/pixi.js": "^4.8.3",
-    "@types/react": "^16.4.18",
-    "@types/react-dom": "^16.0.9",
-    "husky": "^1.1.3",
-    "prettier": "^1.15.1",
-    "pretty-quick": "^1.8.0",
-    "typescript": "^3.1.6"
+    "@types/ace": "^0.0.42",
+    "@types/jest": "^24.0.11",
+    "@types/pixi.js": "^4.8.6",
+    "@types/react": "^16.8.8",
+    "@types/react-dom": "^16.8.3",
+    "husky": "^1.3.1",
+    "prettier": "^1.16.4",
+    "pretty-quick": "^1.10.0",
+    "typescript": "^3.3.4000"
   },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

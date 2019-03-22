@@ -3,11 +3,12 @@ import * as ace from 'ace-builds';
 import 'ace-builds/webpack-resolver';
 
 import config from '../config';
-import { ICodeEditorContext, EditorProps } from './types';
+import { EditorProps } from './types';
+import CodeEditorContext from './code-editor.context';
 
 import './code-editor.css';
 
-class Ace extends React.Component<ICodeEditorContext> {
+class Ace extends React.Component<{}> {
   private elem: React.RefObject<HTMLDivElement> = React.createRef();
   private aceInstance: ace.Ace.Editor;
 
@@ -29,7 +30,7 @@ class Ace extends React.Component<ICodeEditorContext> {
   private validProps() {
     const valid: EditorProps = {
       ...config.editor.defaultProps,
-      ...this.props.editorProps,
+      ...this.context.editorProps,
     };
     valid.theme = `${config.editor.paths.theme}/${valid.theme}`;
     valid.fontSize = parseInt(valid.fontSize as string, 10);
@@ -40,9 +41,10 @@ class Ace extends React.Component<ICodeEditorContext> {
 
   public render() {
     return (
-      <div className={`${this.props.baseClass}__instance`} ref={this.elem} />
+      <div className={`${config.editor.className}__instance`} ref={this.elem} />
     );
   }
 }
 
+Ace.contextType = CodeEditorContext;
 export default Ace;

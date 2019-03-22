@@ -42,7 +42,7 @@ enum possibleThemesDark {
 
 const acePaths = { theme: 'ace/theme', mode: 'ace/mode' };
 
-const defaultTheme = 'tomorrow_night';
+const defaultTheme = 'tomorrow_night_eighties';
 
 const aceDefaultProps = {
   mode: `${acePaths.mode}/javascript`,
@@ -52,7 +52,7 @@ const aceDefaultProps = {
   theme: defaultTheme,
   newLineMode: 'unix' as 'auto' | 'unix' | 'windows',
   useSoftTabs: true,
-  fontSize: 16 as number | string,
+  fontSize: 14 as number | string,
 };
 
 const editor = {

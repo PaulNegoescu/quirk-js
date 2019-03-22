@@ -4,7 +4,7 @@ import config from '../../config';
 import ThemeSelector from './theme-selector.component';
 import FontSizeSelector from './font-size-selector.component';
 import TabSizeSelector from './tab-size-selector.component';
-import { ICodeEditorContext } from '../types';
+import CodeEditorContext from '../code-editor.context';
 
 interface ICodeEditorControlState {
   theme?: string;
@@ -12,21 +12,20 @@ interface ICodeEditorControlState {
   tabSize?: any;
 }
 
-class CodeEditorControls extends React.Component<
-  ICodeEditorContext,
-  ICodeEditorControlState
-> {
+class CodeEditorControls extends React.Component<{}, ICodeEditorControlState> {
   private settings = ['theme', 'fontSize', 'tabSize'];
 
   public constructor(props: any) {
     super(props);
-
     this.state = {};
-    this.reloadStateFromCache();
-    this.props.onConfigurationChange &&
-      this.props.onConfigurationChange(this.state);
 
     this.handleConfigurationChange = this.handleConfigurationChange.bind(this);
+  }
+
+  public componentDidMount() {
+    const state = this.reloadStateFromCache();
+    this.setState(state);
+    this.context.onConfigurationChange(state);
   }
 
   private handleConfigurationChange(e: React.FormEvent<HTMLSelectElement>) {
@@ -38,24 +37,26 @@ class CodeEditorControls extends React.Component<
       value,
     );
 
-    this.props.onConfigurationChange &&
-      this.props.onConfigurationChange(key, value);
+    this.context.onConfigurationChange(key, value);
   }
 
   private reloadStateFromCache() {
-    this.settings.forEach(setting => {
-      this.state[setting] =
+    const value = {};
+    for (const setting of this.settings) {
+      value[setting] =
         localStorage.getItem(
           `${config.editor.localStorageKey}-setting-${setting}`,
         ) ||
-        this.props[setting] ||
+        this.context.editorProps[setting] ||
         config.editor.defaultProps[setting];
-    });
+    }
+
+    return value;
   }
 
   public render() {
     return (
-      <div className={`${this.props.baseClass}__controls form-row`}>
+      <div className={`${config.editor.className}__controls form-row`}>
         <div className="col-xl">
           <ThemeSelector
             handleChange={this.handleConfigurationChange}
@@ -79,4 +80,5 @@ class CodeEditorControls extends React.Component<
   }
 }
 
+CodeEditorControls.contextType = CodeEditorContext;
 export default CodeEditorControls;
