@@ -1,5 +1,5 @@
 import * as React from 'react';
-import config from '../../config';
+import config from '../../../../shared/config';
 
 import ThemeSelector from './theme-selector.component';
 import FontSizeSelector from './font-size-selector.component';

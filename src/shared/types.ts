@@ -1,4 +1,4 @@
-import config from '../config';
+import config from './config';
 
 // the provided types force a complete object to be passed, defining them ourselves we make this work properly
 export type EditorProps = {

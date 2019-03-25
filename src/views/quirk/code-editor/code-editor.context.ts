@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ICodeEditorContext } from './types';
+import { ICodeEditorContext } from '../../../shared/types';
 
 const CodeEditorContext = React.createContext<ICodeEditorContext>({
   editorProps: {},

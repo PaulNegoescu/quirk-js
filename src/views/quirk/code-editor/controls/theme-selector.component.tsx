@@ -1,5 +1,5 @@
 import * as React from 'react';
-import config from '../../config';
+import config from '../../../../shared/config';
 
 export default class ThemeSelector extends React.Component<{
   theme: string;

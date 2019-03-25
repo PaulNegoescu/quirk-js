@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Ace from './ace.component';
 import Controls from './controls';
-import config from '../config';
-import { EditorProps, ICodeEditorContext } from './types';
+import config from '../../../shared/config';
+import { EditorProps, ICodeEditorContext } from '../../../shared/types';
 import CodeEditorContext from './code-editor.context';
 
 class CodeEditor extends React.Component<{}, ICodeEditorContext> {

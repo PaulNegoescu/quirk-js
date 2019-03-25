@@ -2,8 +2,8 @@ import * as React from 'react';
 import * as ace from 'ace-builds';
 import 'ace-builds/webpack-resolver';
 
-import config from '../config';
-import { EditorProps } from './types';
+import config from '../../../shared/config';
+import { EditorProps } from '../../../shared/types';
 import CodeEditorContext from './code-editor.context';
 
 import './code-editor.css';
