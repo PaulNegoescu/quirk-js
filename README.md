@@ -1,5 +1,10 @@
 # Quirk JS
 
+![Learn Better](https://img.shields.io/badge/learn-better%2feasier%2fsmarter-blueviolet.svg)
+[![npm version](https://badge.fury.io/js/quirk-js.svg)](https://badge.fury.io/js/quirk-js)
+[![Deps](https://david-dm.org/PaulNegoescu/quirk-js.svg)](https://david-dm.org/PaulNegoescu/quirk-js.svg)
+[![Dev Deps](https://david-dm.org/PaulNegoescu/quirk-js/dev-status.svg)](https://david-dm.org/PaulNegoescu/quirk-js/dev-status.svg)
+
 Quirk JS is a teaching tool meant to teach aspiring software engineers proper coding habbits and a bit of JavaScript syntax.
 
 Quirk is inspired by [Karel the robot](http://karel.sourceforge.net/) (by Richard E. Pattis), also used in a Java version by the Stanford University in their [CS106A](https://www.youtube.com/playlist?list=PLFE2A69D0EA1C22B3) course.
