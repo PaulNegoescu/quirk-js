@@ -6,8 +6,12 @@ interface IRenderer {
 }
 
 class Renderer extends React.Component<IRenderer> {
-  private app: PIXI.Application;
   private canvas = this.props.canvas.current as HTMLCanvasElement;
+  private app: PIXI.Application = new PIXI.Application({
+    //autoResize: true,
+    resolution: devicePixelRatio,
+    view: this.canvas,
+  });
 
   public constructor(props: IRenderer) {
     super(props);
@@ -15,12 +19,6 @@ class Renderer extends React.Component<IRenderer> {
   }
 
   public componentDidMount() {
-    this.app = new PIXI.Application({
-      autoResize: true,
-      resolution: devicePixelRatio,
-      view: this.canvas,
-    });
-
     window.addEventListener('resize', this.onResize);
 
     // tslint:disable

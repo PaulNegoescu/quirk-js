@@ -14,8 +14,6 @@ class CodeEditor extends React.Component<{}, ICodeEditorContext> {
     };
   }
 
-  private onConfigurationChange(conf: EditorProps): void;
-  private onConfigurationChange(conf: string, value?: string): void;
   private onConfigurationChange(conf: string | EditorProps, value?: string) {
     /* tslint:disable */
     console.log('Conf change, code editor:', conf, value);

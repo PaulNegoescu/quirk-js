@@ -1,9 +1,9 @@
 # Quirk JS
 
 ![Learn Better](https://img.shields.io/badge/learn-better%2feasier%2fsmarter-blueviolet.svg)
-[![npm version](https://badge.fury.io/js/quirk-js.svg)](https://badge.fury.io/js/quirk-js)
-[![Deps](https://david-dm.org/PaulNegoescu/quirk-js.svg)](https://david-dm.org/PaulNegoescu/quirk-js.svg)
-[![Dev Deps](https://david-dm.org/PaulNegoescu/quirk-js/dev-status.svg)](https://david-dm.org/PaulNegoescu/quirk-js/dev-status.svg)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/PaulNegoescu/quirk-js)
+![Deps](https://img.shields.io/david/PaulNegoescu/quirk-js)
+![Dev Deps](https://img.shields.io/david/dev/PaulNegoescu/quirk-js)
 
 Quirk JS is a teaching tool meant to teach aspiring software engineers proper coding habbits and a bit of JavaScript syntax.
 

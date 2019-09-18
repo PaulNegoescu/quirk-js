@@ -3,23 +3,19 @@ import * as ace from 'ace-builds';
 import 'ace-builds/webpack-resolver';
 
 import config from '../../../shared/config';
-import { EditorProps } from '../../../shared/types';
 import CodeEditorContext from './code-editor.context';
 
 import './code-editor.css';
 
 class Ace extends React.Component<{}> {
   private elem: React.RefObject<HTMLDivElement> = React.createRef();
-  private aceInstance: ace.Ace.Editor;
-
-  public componentDidMount() {
-    this.aceInstance = ace.edit(
-      this.elem.current as HTMLDivElement,
-      this.validProps() as ace.Ace.EditorOptions,
-    );
-  }
+  private aceInstance!: ace.Ace.Editor;
 
   public componentDidUpdate() {
+    this.aceInstance = ace.edit(
+      this.elem.current as HTMLDivElement,
+      this.validProps(),
+    );
     this.aceInstance.setOptions(this.validProps());
   }
 
@@ -28,13 +24,13 @@ class Ace extends React.Component<{}> {
   }
 
   private validProps() {
-    const valid: EditorProps = {
+    const valid: Partial<ace.Ace.EditorOptions> = {
       ...config.editor.defaultProps,
       ...this.context.editorProps,
     };
     valid.theme = `${config.editor.paths.theme}/${valid.theme}`;
-    valid.fontSize = parseInt(valid.fontSize as string, 10);
-    valid.tabSize = parseInt((valid.tabSize as unknown) as string, 10);
+    valid.fontSize = Number(valid.fontSize);
+    valid.tabSize = Number(valid.tabSize);
 
     return valid;
   }

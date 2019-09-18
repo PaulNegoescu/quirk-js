@@ -41,14 +41,14 @@ class CodeEditorControls extends React.Component<{}, ICodeEditorControlState> {
   }
 
   private reloadStateFromCache() {
-    const value = {};
+    const value: any = {};
     for (const setting of this.settings) {
       value[setting] =
         localStorage.getItem(
           `${config.editor.localStorageKey}-setting-${setting}`,
         ) ||
         this.context.editorProps[setting] ||
-        config.editor.defaultProps[setting];
+        (config.editor.defaultProps as any)[setting];
     }
 
     return value;

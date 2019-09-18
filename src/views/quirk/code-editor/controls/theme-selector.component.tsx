@@ -9,11 +9,7 @@ export default class ThemeSelector extends React.Component<{
     super(props);
   }
 
-  private renderThemeOptions(
-    possibleThemes:
-      | typeof config.editor.possibleThemesLight
-      | typeof config.editor.possibleThemesDark,
-  ) {
+  private renderThemeOptions(possibleThemes: { [key: string]: string }) {
     return Object.keys(possibleThemes).map(option => (
       <option value={option} key={option}>
         {possibleThemes[option]}
