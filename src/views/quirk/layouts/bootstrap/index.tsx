@@ -4,10 +4,12 @@ const Layout = ({
   title,
   primary,
   secondary,
+  output,
 }: {
   title: React.ReactNode;
   primary: React.ReactNode;
   secondary?: React.ReactNode;
+  output: React.ReactNode;
 }): React.ReactElement<{}> => (
   <div className="quirk-app container-fluid">
     <nav className="navbar navbar-dark bg-dark">
@@ -22,6 +24,7 @@ const Layout = ({
     <div className="row">
       <div className="col-lg"></div>
     </div>
+    <div>{output}</div>
   </div>
 );
 
