@@ -1,0 +1,18 @@
+export const obstacles = [
+  { x: 150, y: 0, width: 50, height: 50 },
+  { x: 150, y: 50, width: 50, height: 50 },
+  { x: 150, y: 100, width: 50, height: 50 },
+  { x: 200, y: 100, width: 50, height: 50 },
+  { x: 250, y: 100, width: 50, height: 50 },
+  { x: 300, y: 100, width: 50, height: 50 },
+  { x: 300, y: 150, width: 50, height: 50 },
+  { x: 300, y: 200, width: 50, height: 50 },
+  { x: 300, y: 200, width: 50, height: 50 },
+  { x: 0, y: 300, width: 50, height: 50 },
+  { x: 50, y: 300, width: 50, height: 50 },
+  { x: 100, y: 300, width: 50, height: 50 },
+  { x: 150, y: 300, width: 50, height: 50 },
+  { x: 200, y: 300, width: 50, height: 50 },
+  { x: 250, y: 300, width: 50, height: 50 },
+  { x: 300, y: 300, width: 50, height: 50 },
+];

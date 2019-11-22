@@ -1,11 +1,20 @@
 import React from 'react';
 
-import { Sprite, _ReactPixi } from '@inlet/react-pixi';
+import { obstacles } from '../../../board.config';
+import { Collision } from '../../helpers/collision.helper';
+import { Sprite } from '@inlet/react-pixi';
+
+enum Directions {
+  X = 'x',
+  Y = 'y',
+}
 
 export class Quirk extends React.Component {
   public state = {
-    x: 150,
-    y: 150,
+    x: 0,
+    y: 0,
+    width: 50,
+    height: 50,
   };
 
   private movementsToState = {
@@ -23,22 +32,22 @@ export class Quirk extends React.Component {
   }
 
   public moveLeft = (value: number = 25) => {
-    this.move('x', this.state.x - value);
+    this.move(Directions.X, this.state.x - value);
   };
 
   public moveUp = (value: number = 25) => {
-    this.move('y', this.state.y - value);
+    this.move(Directions.Y, this.state.y - value);
   };
 
   public moveDown = (value: number = 25) => {
-    this.move('y', this.state.y + value);
+    this.move(Directions.Y, this.state.y + value);
   };
 
   public moveRight = (value: number = 25) => {
-    this.move('x', this.state.x + value);
+    this.move(Directions.X, this.state.x + value);
   };
 
-  private move(direction: 'x' | 'y', coordValue: number) {
+  private move(direction: Directions, coordValue: number) {
     if (!this.canMove(direction, coordValue)) {
       return;
     }
@@ -46,8 +55,20 @@ export class Quirk extends React.Component {
     this.movementsToState[direction](coordValue);
   }
 
-  private canMove(direction: 'x' | 'y', value: number) {
-    return true;
+  private canMove(direction: Directions, value: number) {
+    let obstacleFound = false;
+    const quirckPosition = { ...this.state };
+    quirckPosition[direction] = value;
+
+    obstacles.forEach(obstacle => {
+      if (Collision.hitTestRectangle({ ...quirckPosition }, { ...obstacle })) {
+        obstacleFound = true;
+      }
+    });
+
+    console.log(obstacleFound);
+
+    return !obstacleFound;
   }
 
   public render() {
