@@ -45,7 +45,7 @@ export type EditorProps = {
   baseClass?: string;
 } & Partial<typeof config.editor.defaultProps>;
 
-export interface ICodeEditorContext {
+export interface IQuirkContext {
   editorProps: EditorProps;
   onConfigurationChange: (conf: string | EditorProps, value?: string) => void;
 }
