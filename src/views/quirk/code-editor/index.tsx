@@ -4,8 +4,9 @@ import Controls from './controls';
 import config from '../../../shared/config';
 import { EditorProps, IQuirkContext } from '../../../shared/types';
 import CodeEditorContext from '../../../shared/quirk.context';
-class CodeEditor extends React.Component<{}, IQuirkContext> {
-  public constructor(props: {}) {
+import OutputBox from '../outputBox';
+class CodeEditor extends React.Component<any, IQuirkContext> {
+  public constructor(props: any) {
     super(props);
     this.state = {
       editorProps: {},
@@ -25,11 +26,10 @@ class CodeEditor extends React.Component<{}, IQuirkContext> {
     this.setState({ editorProps: { ...this.state.editorProps, ...conf } });
   }
 
-  private errorOut() {
-    return function() {
-      const err = new Error('Another one is wrong!');
-    };
-  }
+  errorAssign = () => {
+    const err = new Error('Another one is wrong!');
+    this.props.errorOut(err);
+  };
 
   public render() {
     return (
@@ -46,7 +46,7 @@ class CodeEditor extends React.Component<{}, IQuirkContext> {
         </div>
         <div className="border border-dark">
           <Ace />
-          <button>Error</button>
+          <button onClick={this.errorAssign}>Error</button>
         </div>
       </CodeEditorContext.Provider>
     );
