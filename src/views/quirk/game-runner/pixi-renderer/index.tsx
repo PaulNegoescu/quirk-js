@@ -26,8 +26,10 @@ class Renderer extends React.Component<IRenderer> {
   }
 
   private onResize() {
-    const parent = this.canvas.parentNode as HTMLElement;
-    this.app.renderer.resize(parent.clientWidth, parent.clientHeight);
+    const parent = this.canvas && (this.canvas.parentNode as HTMLElement);
+    if (parent) {
+      this.app.renderer.resize(parent.clientWidth, parent.clientHeight);
+    }
   }
 
   public render() {
