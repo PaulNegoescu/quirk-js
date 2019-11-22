@@ -1,0 +1,15 @@
+{
+  "component": {
+    "path": "src/views",
+    "css": {
+      "preprocessor": "css",
+      "module": false
+    },
+    "test": {
+      "library": "None",
+      "withTest": false
+    },
+    "withStory": false,
+    "withLazy": false
+  }
+}

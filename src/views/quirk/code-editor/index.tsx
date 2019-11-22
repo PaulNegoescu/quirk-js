@@ -4,8 +4,9 @@ import Controls from './controls';
 import config from '../../../shared/config';
 import { EditorProps, ICodeEditorContext } from '../../../shared/types';
 import CodeEditorContext from './code-editor.context';
+import OutputBox from '../outputBox';
 
-class CodeEditor extends React.Component<{}, ICodeEditorContext> {
+class CodeEditor extends React.Component<{}, ICodeEditorContext, OutputBox> {
   public constructor(props: {}) {
     super(props);
     this.state = {
@@ -26,6 +27,12 @@ class CodeEditor extends React.Component<{}, ICodeEditorContext> {
     this.setState({ editorProps: { ...this.state.editorProps, ...conf } });
   }
 
+  private errorOut() {
+    return function() {
+      const err = new Error('Another one is wrong!');
+    };
+  }
+
   public render() {
     return (
       <CodeEditorContext.Provider value={this.state}>
@@ -41,6 +48,7 @@ class CodeEditor extends React.Component<{}, ICodeEditorContext> {
         </div>
         <div className="border border-dark">
           <Ace />
+          <button>Error</button>
         </div>
       </CodeEditorContext.Provider>
     );
