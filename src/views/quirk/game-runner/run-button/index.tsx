@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import QuirkContext from '../../../../shared/quirk.context';
 
-export default function index() {
+export default function RunButton() {
+  const context = useContext(QuirkContext);
+
   function handleClick() {
-    const context = useContext(QuirkContext);
     console.log('Button Clicked');
   }
   return <button onClick={handleClick}>Run</button>;

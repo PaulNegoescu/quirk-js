@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Renderer from './pixi-renderer';
+import RunButton from './run-button';
 
 class GameRunner extends React.Component<{}> {
   private ref: React.RefObject<HTMLCanvasElement> = React.createRef();
@@ -9,6 +10,7 @@ class GameRunner extends React.Component<{}> {
       <>
         <canvas ref={this.ref} />
         <Renderer canvas={this.ref} />
+        <RunButton />
       </>
     );
   }
