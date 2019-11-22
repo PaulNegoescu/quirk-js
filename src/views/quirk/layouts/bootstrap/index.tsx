@@ -19,6 +19,9 @@ const Layout = ({
       <div className="col-lg">{primary}</div>
       <div className="col-lg">{secondary}</div>
     </div>
+    <div className="row">
+      <div className="col-lg"></div>
+    </div>
   </div>
 );
 

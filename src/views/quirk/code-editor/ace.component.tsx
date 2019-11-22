@@ -3,7 +3,7 @@ import * as ace from 'ace-builds';
 import 'ace-builds/webpack-resolver';
 
 import config from '../../../shared/config';
-import CodeEditorContext from './code-editor.context';
+import QuirkContext from '../../../shared/quirk.context';
 
 import './code-editor.css';
 
@@ -42,5 +42,5 @@ class Ace extends React.Component<{}> {
   }
 }
 
-Ace.contextType = CodeEditorContext;
+Ace.contextType = QuirkContext;
 export default Ace;

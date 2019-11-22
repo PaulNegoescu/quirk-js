@@ -2,10 +2,10 @@ import * as React from 'react';
 import Ace from './ace.component';
 import Controls from './controls';
 import config from '../../../shared/config';
-import { EditorProps, ICodeEditorContext } from '../../../shared/types';
-import CodeEditorContext from './code-editor.context';
+import { EditorProps, IQuirkContext } from '../../../shared/types';
+import CodeEditorContext from '../../../shared/quirk.context';
 
-class CodeEditor extends React.Component<{}, ICodeEditorContext> {
+class CodeEditor extends React.Component<{}, IQuirkContext> {
   public constructor(props: {}) {
     super(props);
     this.state = {

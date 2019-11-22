@@ -4,7 +4,7 @@ import config from '../../../../shared/config';
 import ThemeSelector from './theme-selector.component';
 import FontSizeSelector from './font-size-selector.component';
 import TabSizeSelector from './tab-size-selector.component';
-import CodeEditorContext from '../code-editor.context';
+import QuirkContext from '../../../../shared/quirk.context';
 
 interface ICodeEditorControlState {
   theme?: string;
@@ -80,5 +80,5 @@ class CodeEditorControls extends React.Component<{}, ICodeEditorControlState> {
   }
 }
 
-CodeEditorControls.contextType = CodeEditorContext;
+CodeEditorControls.contextType = QuirkContext;
 export default CodeEditorControls;
