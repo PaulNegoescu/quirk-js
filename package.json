@@ -3,6 +3,7 @@
   "version": "0.5.0",
   "private": true,
   "dependencies": {
+    "@inlet/react-pixi": "^1.1.9",
     "ace-builds": "^1.4.6",
     "bootstrap": "^4.3.1",
     "generate-react-cli": "^1.7.3",
