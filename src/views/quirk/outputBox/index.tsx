@@ -16,10 +16,7 @@ class OutputBox extends React.Component<any> {
     return (
       <div className={className}>
         <div className="row">
-          <h4>
-            Drats! That's way too smart for me! Can you dumb it down a bit for
-            me, please?
-          </h4>
+          <h4>Drats! That's way too smart for me. I didn't get it right!</h4>
         </div>
         <div className="row">
           <h5>Namely:</h5>
