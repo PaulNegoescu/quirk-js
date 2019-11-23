@@ -48,11 +48,9 @@ export class Quirk extends React.Component {
   };
 
   private move(direction: Directions, coordValue: number) {
-    if (!this.canMove(direction, coordValue)) {
-      return;
+    if (this.canMove(direction, coordValue)) {
+      this.movementsToState[direction](coordValue);
     }
-
-    this.movementsToState[direction](coordValue);
   }
 
   private canMove(direction: Directions, value: number) {
