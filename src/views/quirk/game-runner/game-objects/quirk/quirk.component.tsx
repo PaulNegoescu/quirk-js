@@ -56,19 +56,12 @@ export class Quirk extends React.Component {
   }
 
   private canMove(direction: Directions, value: number) {
-    let obstacleFound = false;
     const quirckPosition = { ...this.state };
     quirckPosition[direction] = value;
 
-    obstacles.forEach(obstacle => {
-      if (Collision.hitTestRectangle({ ...quirckPosition }, { ...obstacle })) {
-        obstacleFound = true;
-      }
-    });
-
-    console.log(obstacleFound);
-
-    return !obstacleFound;
+    return !obstacles.find(obstacle =>
+      Collision.hitTestRectangle({ ...quirckPosition }, { ...obstacle }),
+    );
   }
 
   public render() {
