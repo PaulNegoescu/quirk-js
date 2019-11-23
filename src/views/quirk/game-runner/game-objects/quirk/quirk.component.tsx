@@ -25,10 +25,10 @@ export class Quirk extends React.Component {
   constructor(props: any) {
     super(props);
 
-    (window as any).moveUp = this.moveUp.bind(this);
-    (window as any).moveDown = this.moveDown.bind(this);
-    (window as any).moveLeft = this.moveLeft.bind(this);
-    (window as any).moveRight = this.moveRight.bind(this);
+    (window as any).moveUp = this.moveUp;
+    (window as any).moveDown = this.moveDown;
+    (window as any).moveLeft = this.moveLeft;
+    (window as any).moveRight = this.moveRight;
   }
 
   public moveLeft = (value: number = 25) => {
