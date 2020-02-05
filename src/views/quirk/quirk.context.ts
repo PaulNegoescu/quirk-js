@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { IQuirkContext } from './types';
+import { IQuirkContext } from '../../shared/types';
 
-const QuirkContext = React.createContext<IQuirkContext>({
+const QuirkContext = React.createContext<any>({
   editorProps: {},
   // tslint:disable-next-line: no-empty
   onConfigurationChange: () => {},

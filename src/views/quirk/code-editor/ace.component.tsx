@@ -3,7 +3,7 @@ import * as ace from 'ace-builds';
 import 'ace-builds/webpack-resolver';
 
 import config from '../../../shared/config';
-import QuirkContext from '../../../shared/quirk.context';
+import QuirkContext from '../quirk.context';
 
 import './code-editor.css';
 

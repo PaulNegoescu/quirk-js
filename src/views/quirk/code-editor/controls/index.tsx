@@ -4,41 +4,42 @@ import config from '../../../../shared/config';
 import ThemeSelector from './theme-selector.component';
 import FontSizeSelector from './font-size-selector.component';
 import TabSizeSelector from './tab-size-selector.component';
-import QuirkContext from '../../../../shared/quirk.context';
+import QuirkContext from '../../quirk.context';
 
 interface ICodeEditorControlState {
-  theme?: string;
-  fontSize?: string;
-  tabSize?: any;
+  editorProps: ICodeEditorControlState;
 }
 
-class CodeEditorControls extends React.Component<{}, ICodeEditorControlState> {
+class CodeEditorControls extends React.Component<{}, any> {
   private settings = ['theme', 'fontSize', 'tabSize'];
-
-  public constructor(props: any) {
-    super(props);
-    this.state = {};
-
-    this.handleConfigurationChange = this.handleConfigurationChange.bind(this);
-  }
+  public state: any = {
+    editorProps: {},
+  };
 
   public componentDidMount() {
     const state = this.reloadStateFromCache();
     this.setState(state);
-    this.context.onConfigurationChange(state);
+    this.context.handleContextChange(state);
   }
 
-  private handleConfigurationChange(e: React.FormEvent<HTMLSelectElement>) {
+  private handleConfigurationChange = (
+    e: React.FormEvent<HTMLSelectElement>,
+  ) => {
     const key = e.currentTarget.name;
     const value = e.currentTarget.value;
-    this.setState({ [key]: value });
+    this.setState({
+      editorProps: {
+        [key]: value,
+      },
+    });
+
     localStorage.setItem(
       `${config.editor.localStorageKey}-setting-${key}`,
       value,
     );
 
-    this.context.onConfigurationChange(key, value);
-  }
+    this.context.handleContextChange({ ...this.state, [key]: value });
+  };
 
   private reloadStateFromCache() {
     const value: any = {};

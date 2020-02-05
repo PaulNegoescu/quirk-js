@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import QuirkContext from '../../../../shared/quirk.context';
+import QuirkContext from '../../quirk.context';
 
 export default function RunButton() {
   const context = useContext(QuirkContext);
